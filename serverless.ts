@@ -23,13 +23,26 @@ const serverlessConfiguration: AWS = {
   },
   // import the function via paths
   functions: { 
-    hello: {
-      handler: "src/functions/hello.handler",
+    createtodo: {
+      handler: "src/functions/createtodo.handler",
       events: [
         {
           http: {
-            path: "hello/{user_id}",
+            path: "createtodo/{user_id}",
             method: "post",
+
+            cors: true
+          }
+        }
+      ]
+    },
+    findtodo: {
+      handler: "src/functions/findtodo.handler",
+      events: [
+        {
+          http: {
+            path: "findtodo/{user_id}",
+            method: "get",
 
             cors: true
           }
